@@ -4,4 +4,6 @@ The Tic Tac Toe game, built using HTML, CSS, and JavaScript, provides a responsi
 ## Screenshot
 
 ## Stack Used
-- 
+- [HTML](#HTML)
+- [CSS](#CSS)
+- [JavaScript](#JavaScript)
