@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+::selection {
+  color: #fff;
+  background: #ff7eb3;
+}
+
+body {
+  background: linear-gradient(135deg, #56baed, #ff7eb3, #85ffbd);
+  background-size: 400% 400%;
+  animation: gradientBackground 15s ease infinite;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes gradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.select-box, .play-board, .result-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+}
+
+.select-box {
+  background: #fff;
+  border: 2px solid white;
+  padding: 30px 35px;
+  border-radius: 50px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 4px 16px 16px rgba(0, 0, 0, 0.2);
+}
+
+.select-box header {
+  font-size: 32px;
+  font-weight: 600;
+  padding-bottom: 10px;
+  color: #ff7eb3;
+  text-align: center;
+  border-bottom: 2px solid #85ffbd;
+}
+
+.select-box .title {
+  font-size: 24px;
+  font-weight: 500;
+  margin: 20px 0;
+  color: #333;
+  text-align: center;
+}
+
+.options button {
+  width: 100%;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 12px 0;
+  border: none;
+  background: linear-gradient(135deg, #56baed, #85ffbd);
+  border-radius: 8px;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 5px;
+}
+
+.options button:hover {
+  transform: scale(0.98);
+  background: linear-gradient(135deg, #85ffbd, #56baed);
+}
+
+.play-board {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
+.play-board.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.play-board .details {
+  padding: 7px;
+  border-radius: 5px;
+  background: #fff;
+  margin-bottom: 20px;
+}
+
+.play-board .players {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.players span {
+  z-index: 2;
+  color: #333;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 10px 20px;
+  text-align: center;
+  cursor: default;
+  user-select: none;
+}
+
+.players .slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(135deg, #56baed, #ff7eb3);
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.players.active .slider {
+  left: 50%;
+}
+
+.play-area {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 8px;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.play-area section span {
+  display: block;
+  height: 90px;
+  width: 90px;
+  margin: 10px; /* Add space around each box */
+  color: #56baed;
+  font-size: 40px;
+  line-height: 80px;
+  text-align: center;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for a more attractive look */
+  transition: transform 0.2s ease; /* Optional: Smooth hover effect */
+}
+
+.play-area section span:hover {
+  transform: scale(1.05); /* Optional: Slightly enlarge the box on hover */
+}
+
+.result-box {
+  padding: 25px 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 100%;
+  opacity: 0;
+  text-align: center;
+  background: #fff;
+  pointer-events: none;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.result-box.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.result-box .won-text {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #56baed;
+}
+
+.result-box .btn button {
+  font-size: 18px;
+  font-weight: 500;
+  padding: 10px 30px;
+  border: none;
+  background: linear-gradient(135deg, #ff7eb3, #56baed);
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.result-box .btn button:hover {
+  transform: scale(0.98);
+  background: linear-gradient(135deg, #56baed, #ff7eb3);
+}
+.select-box.hide{
+  opacity: 0;
+  pointer-events: none;
+}
